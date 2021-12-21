@@ -1,17 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HelloWorld class="abcdefg" ref="son1" b="222" :cc="cc" @fn1="handleFn1">
+    <template v-slot:taga>
+      <div>slot slot a</div>
+    </template>
+    <template v-slot:tagb>
+      <div>slot slot b</div>
+    </template>
+  </HelloWorld>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+function handleFn1(aa, bb) {
+  console.log('fn1', aa, bb)
 }
+const son1 = ref(null);
+console.log(son1)
+
+const cc = ref(666)
 </script>
 
 <style>
